@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELITE AUTO DETAILS | Premium Auto Detailing Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #16213e;
+            --accent-color: #e94560;
+            --light-accent: #f39c12;
+            --text-light: #ffffff;
+            --text-dark: #1a1a2e;
+            --background-light: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-light);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 12px 0;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .top-bar a {
+            color: var(--light-accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .top-bar a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--text-light);
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.3em;
+            color: var(--light-accent);
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--secondary-color);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 25px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--light-accent);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 80px;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .service-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Reviews */
+        .reviews-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .review {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .review:last-child {
+            border-bottom: none;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .review-name {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.1em;
+        }
+
+        .stars {
+            color: var(--light-accent);
+            font-size: 1.2em;
+        }
+
+        .review-body {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .load-more-btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 15px 40px;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .load-more-btn:hover {
+            background-color: #d63651;
+            transform: scale(1.05);
+        }
+
+        .load-more-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            transform: scale(1);
+        }
+
+        /* Hours */
+        .hours-table {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .time {
+            color: #555;
+        }
+
+        /* Map */
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            height: 450px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #d63651;
+            transform: scale(1.02);
+        }
+
+        /* Square Payment */
+        .payment-section {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .payment-section p {
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        #payment-form {
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2em;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 10px 0;
+            }
+
+            section h2 {
+                font-size: 2em;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 350px;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Phone -->
+    <div class="top-bar">
+        Call Now: <a href="tel:+18017082460">+1 (801) 708-2460</a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>ELITE AUTO DETAILS</h1>
+        <p>Premium Auto Detailing Services by Yair</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#hours">Hours</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#payment">Book & Pay</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Services Section -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Exterior Detailing</h3>
+                    <p>Complete exterior hand wash, clay bar treatment, paint correction, and premium wax or ceramic coating application for lasting protection and shine.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Interior Detailing</h3>
+                    <p>Deep cleaning of all interior surfaces including leather conditioning, carpet shampooing, odor elimination, and complete vacuum service.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Paint Correction</h3>
+                    <p>Professional multi-stage paint correction to remove swirl marks, scratches, and oxidation, restoring your vehicle's original finish.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Ceramic Coating</h3>
+                    <p>Long-lasting ceramic coating protection that provides superior gloss, hydrophobic properties, and protection against environmental contaminants.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Headlight Restoration</h3>
+                    <p>Restore clarity to foggy, yellowed headlights improving both appearance and nighttime visibility for safer driving.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Engine Bay Detailing</h3>
+                    <p>Thorough cleaning and dressing of your engine compartment, removing dirt, grime, and oil buildup for a showroom-quality finish.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-container">
+                <div id="reviews-list"></div>
+                <button id="load-more" class="load-more-btn hidden">Show More Reviews</button>
+            </div>
+        </section>
+
+        <!-- Hours Section -->
+        <section id="hours">
+            <h2>Business Hours</h2>
+            <div class="hours-table">
+                <div class="hours-row">
+                    <span class="day">Monday</span>
+                    <span class="time">7:00 AM – 6:30 PM</span>
+                </div>
+                <div class="hours-row">
+                    <span class="day">Tuesday</span>
+                    <span class="time">7:00 AM – 6:30 PM</span>
+                </div>
+                <div class="hours-row">
+                    <span class="day">Wednesday</span>
+                    <span class="time">7:00 AM – 6:30 PM</span>
+                </div>
+                <div class="hours-row">
+                    <span class="day">Thursday</span>
+                    <span class="time">7:00 AM – 6:30 PM</span>
+                </div>
+                <div class="hours-row">
+                    <span class="day">Friday</span>
+                    <span class="time">7:00 AM – 6:30 PM</span>
+                </div>
+                <div class="hours-row">
+                    <span class="day">Saturday</span>
+                    <span class="time">7:00 AM – 7:00 PM</span>
+                </div>
+                <div class="hours-row">
+                    <span class="day">Sunday</span>
+                    <span class="time">7:00 AM – 6:30 PM</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location">
+            <h2>Find Us</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3160290.337574757!2d-113.71512774108281!3d39.32857741612313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4569d24e0f5d9d07%3A0x64f39c075bc925f1!2sELITE%20AUTO%20DETAILS!5e0!3m2!1sen!2sus!4v1761182196691!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service</option>
+                            <option value="exterior">Exterior Detailing</option>
+                            <option value="interior">Interior Detailing</option>
+                            <option value="paint">Paint Correction</option>
+                            <option value="ceramic">Ceramic Coating</option>
+                            <option value="headlight">Headlight Restoration</option>
+                            <option value="engine">Engine Bay Detailing</option>
+                            <option value="full">Full Detail Package</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Payment Section -->
+        <section id="payment">
+            <h2>Book & Pay Online</h2>
+            <div class="payment-section">
+                <p>Book your appointment and pay securely online with Square.</p>
+                <div id="payment-form">
+                    <!-- IMPORTANT: Replace YOUR_LOCATION_ID below with your actual Square Location ID -->
+                    <!-- You can find your Location ID in your Square Dashboard under Settings > Locations -->
+                    <!-- Example: L1234567890ABC -->
+                    <script>
+                        // Square Payment Form Integration
+                        // Replace YOUR_LOCATION_ID with your actual Square location ID
+                        const SQUARE_LOCATION_ID = 'YOUR_LOCATION_ID';
+                        
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const paymentFormDiv = document.getElementById('payment-form');
+                            
+                            if (SQUARE_LOCATION_ID === 'YOUR_LOCATION_ID') {
+                                paymentFormDiv.innerHTML = '<p style="color: #e94560; font-weight: 600;">Payment integration pending. Please contact us directly to book your appointment.</p><p style="margin-top: 15px;"><a href="tel:+18017082460" style="color: #16213e; font-weight: 600; text-decoration: underline;">Call +1 (801) 708-2460</a></p>';
+                            } else {
+                                // Initialize Square payment form here when location ID is set
+                                paymentFormDiv.innerHTML = '<p>Square payment form will load here with your location ID.</p>';
+                                // Add Square Web Payments SDK initialization code here
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ELITE AUTO DETAILS. All rights reserved.</p>
+        <p>Owner: Yair | Phone: <a href="tel:+18017082460" style="color: #f39c12;">+1 (801) 708-2460</a></p>
+    </footer>
+
+    <script>
+        // Reviews Data - Add your actual reviews here
+        const reviewsData = [
+            { name: "Customer 1", rating: 5, body: "" },
+            { name: "Customer 2", rating: 5, body: "" },
+            { name: "Customer 3", rating: 5, body: "" },
+            { name: "Customer 4", rating: 5, body: "" },
+            { name: "Customer 5", rating: 5, body: "" }
+        ];
+
+        let currentReviewIndex = 0;
+        const reviewsPerPage = 6;
+
+        function displayReviews() {
+            const reviewsList = document.getElementById('reviews-list');
+            const loadMoreBtn = document.getElementById('load-more');
+            
+            const endIndex = Math.min(currentReviewIndex + reviewsPerPage, reviewsData.length);
+            
+            for (let i = currentReviewIndex; i < endIndex; i++) {
+                const review = reviewsData[i];
+                const reviewElement = document.createElement('div');
+                reviewElement.className = 'review';
+                
+                const stars = '★'.repeat(review.rating);
+                
+                reviewElement.innerHTML = `
+                    <div class="review-header">
+                        <span class="review-name">${review.name}</span>
+                        <span class="stars">${stars}</span>
+                    </div>
+                    ${review.body ? `<div class="review-body">${review.body}</div>` : ''}
+                `;
+                
+                reviewsList.appendChild(reviewElement);
+            }
+            
+            currentReviewIndex = endIndex;
+            
+            // Update button
+            if (currentReviewIndex < reviewsData.length) {
+                const remaining = reviewsData.length - currentReviewIndex;
+                loadMoreBtn.textContent = `Show ${remaining} More Review${remaining > 1 ? 's' : ''} (Total ${reviewsData.length})`;
+                loadMoreBtn.classList.remove('hidden');
+            } else {
+                loadMoreBtn.classList.add('hidden');
+            }
+        }
+
+        // Load more reviews
+        document.getElementById('load-more').addEventListener('click', displayReviews);
+
+        // Initial load
+        displayReviews();
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Create mailto link
+            const subject = encodeURIComponent('Service Inquiry from ' + formData.name);
+            const body = encodeURIComponent(
+                `Name: ${formData.name}\n` +
+                `Email: ${formData.email}\n` +
+                `Phone: ${formData.phone}\n` +
+                `Service: ${formData.service}\n\n` +
+                `Message:\n${formData.message}`
+            );
+            
+            // Replace with your actual email
+            window.location.href = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
+            
+            // Reset form
+            this.reset();
+            alert('Thank you for your message! Your default email client will open to send your inquiry.');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
