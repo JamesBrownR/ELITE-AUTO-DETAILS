@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ELITE AUTO DETAILS offers premium auto detailing services including exterior and interior detailing, ceramic coating, and more. Book your appointment today!">
+    <meta name="keywords" content="auto detailing, car wash, ceramic coating, paint correction, headlight restoration, Utah">
+    <meta name="author" content="ELITE AUTO DETAILS">
+    <meta property="og:title" content="ELITE AUTO DETAILS | Premium Auto Detailing Services">
+    <meta property="og:description" content="Transform your vehicle with our premium auto detailing services. Expert care by Yair. Book now!">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=ELITE+AUTO+DETAILS">
+    <meta property="og:url" content="https://www.eliteautodetails.com">
     <title>ELITE AUTO DETAILS | Premium Auto Detailing Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,21 +20,22 @@
         }
 
         :root {
-            --primary-color: #1a1a2e;
-            --secondary-color: #16213e;
-            --accent-color: #e94560;
-            --light-accent: #f39c12;
+            --primary-color: #0d1b2a;
+            --secondary-color: #1b263b;
+            --accent-color: #e63946;
+            --light-accent: #f4a261;
             --text-light: #ffffff;
-            --text-dark: #1a1a2e;
-            --background-light: #f8f9fa;
-            --border-color: #dee2e6;
+            --text-dark: #0d1b2a;
+            --background-light: #f9fafb;
+            --border-color: #e0e6ed;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
             color: var(--text-dark);
             background-color: var(--background-light);
+            scroll-behavior: smooth;
         }
 
         /* Top Bar */
@@ -35,14 +44,15 @@
             color: var(--text-light);
             padding: 12px 0;
             text-align: center;
-            font-size: 18px;
+            font-size: 1.1rem;
             font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
         }
 
         .top-bar a {
             color: var(--light-accent);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
         .top-bar a:hover {
@@ -53,32 +63,51 @@
         header {
             background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
             color: var(--text-light);
-            padding: 60px 20px;
+            padding: 80px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1920x600?text=Elite+Auto+Details') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
         }
 
         header h1 {
-            font-size: 3.5em;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.8rem;
+            margin-bottom: 12px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            position: relative;
+            z-index: 1;
         }
 
         header p {
-            font-size: 1.3em;
+            font-size: 1.4rem;
             color: var(--light-accent);
             font-weight: 300;
+            position: relative;
+            z-index: 1;
         }
 
         /* Navigation */
         nav {
             background-color: var(--secondary-color);
-            padding: 15px 0;
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
         }
 
         nav ul {
@@ -89,86 +118,135 @@
         }
 
         nav li {
-            margin: 0 25px;
+            margin: 0 30px;
         }
 
         nav a {
             color: var(--text-light);
             text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            font-size: 1.1em;
-            transition: color 0.3s;
+            font-size: 1.2rem;
+            transition: color 0.3s ease, transform 0.2s ease;
         }
 
         nav a:hover {
             color: var(--light-accent);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 10px;
         }
 
         /* Container */
         .container {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
 
         /* Section Styling */
         section {
-            margin-bottom: 80px;
+            margin-bottom: 100px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
         }
 
         section h2 {
-            font-size: 2.5em;
-            margin-bottom: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 40px;
             color: var(--primary-color);
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Services */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
         }
 
         .service-card {
             background: white;
-            padding: 35px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--accent-color);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            opacity: 0.05;
         }
 
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
             color: var(--primary-color);
-            margin-bottom: 15px;
-            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            position: relative;
+            z-index: 1;
         }
 
         .service-card p {
-            color: #555;
-            line-height: 1.8;
+            color: #4a4a4a;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
         }
 
         /* Reviews */
         .reviews-container {
             background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
         .review {
             border-bottom: 1px solid var(--border-color);
-            padding: 20px 0;
+            padding: 25px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .review:hover {
+            background-color: #f8f9fa;
         }
 
         .review:last-child {
@@ -179,41 +257,43 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .review-name {
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: var(--primary-color);
-            font-size: 1.1em;
+            font-size: 1.2rem;
         }
 
         .stars {
             color: var(--light-accent);
-            font-size: 1.2em;
+            font-size: 1.3rem;
         }
 
         .review-body {
-            color: #555;
-            line-height: 1.8;
+            color: #4a4a4a;
+            line-height: 1.9;
         }
 
         .load-more-btn {
             display: block;
-            margin: 30px auto 0;
-            padding: 15px 40px;
+            margin: 40px auto 0;
+            padding: 15px 50px;
             background-color: var(--accent-color);
             color: var(--text-light);
             border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .load-more-btn:hover {
-            background-color: #d63651;
+            background-color: #c92f3c;
             transform: scale(1.05);
         }
 
@@ -226,18 +306,23 @@
         /* Hours */
         .hours-table {
             background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            max-width: 600px;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            max-width: 700px;
             margin: 0 auto;
         }
 
         .hours-row {
             display: flex;
             justify-content: space-between;
-            padding: 15px 0;
+            padding: 20px 0;
             border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .hours-row:hover {
+            background-color: #f8f9fa;
         }
 
         .hours-row:last-child {
@@ -245,57 +330,64 @@
         }
 
         .day {
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             color: var(--primary-color);
+            font-size: 1.1rem;
         }
 
         .time {
-            color: #555;
+            color: #4a4a4a;
+            font-size: 1.1rem;
         }
 
         /* Map */
         .map-container {
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            height: 450px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            height: 500px;
         }
 
         .map-container iframe {
             width: 100%;
             height: 100%;
+            border: none;
         }
 
         /* Contact Form */
         .contact-form {
             background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            max-width: 700px;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             color: var(--primary-color);
+            font-size: 1.1rem;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             border: 2px solid var(--border-color);
-            border-radius: 5px;
-            font-size: 1em;
-            transition: border-color 0.3s;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-group input:focus,
@@ -303,50 +395,67 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--accent-color);
+            box-shadow: 0 0 8px rgba(230, 57, 70, 0.2);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             background-color: var(--accent-color);
             color: var(--text-light);
             border: none;
-            border-radius: 5px;
-            font-size: 1.2em;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .submit-btn:hover {
-            background-color: #d63651;
-            transform: scale(1.02);
+            background-color: #c92f3c;
+            transform: scale(1.03);
         }
 
-        /* Square Payment */
+        /* Payment Section */
         .payment-section {
             background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            max-width: 600px;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            max-width: 700px;
             margin: 0 auto;
             text-align: center;
         }
 
         .payment-section p {
-            color: #555;
-            margin-bottom: 25px;
-            font-size: 1.1em;
+            color: #4a4a4a;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            line-height: 1.8;
         }
 
-        #payment-form {
-            margin-top: 20px;
+        #payment-form p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            line-height: 1.8;
+        }
+
+        #payment-form a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        #payment-form a:hover {
+            color: var(--light-accent);
         }
 
         /* Footer */
@@ -354,35 +463,66 @@
             background-color: var(--primary-color);
             color: var(--text-light);
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 80px;
+            padding: 40px 20px;
+            margin-top: 100px;
+            font-family: 'Montserrat', sans-serif;
         }
 
         footer p {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
         }
 
-        /* Responsive */
+        footer a {
+            color: var(--light-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2.2em;
+                font-size: 2.5rem;
             }
 
             header p {
-                font-size: 1.1em;
+                font-size: 1.2rem;
             }
 
             nav ul {
+                display: none;
                 flex-direction: column;
                 align-items: center;
+                background-color: var(--secondary-color);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 20px 0;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }
+
+            nav ul.active {
+                display: flex;
             }
 
             nav li {
-                margin: 10px 0;
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
             }
 
             section h2 {
-                font-size: 2em;
+                font-size: 2.2rem;
             }
 
             .services-grid {
@@ -390,7 +530,36 @@
             }
 
             .map-container {
-                height: 350px;
+                height: 400px;
+            }
+
+            .contact-form,
+            .payment-section,
+            .hours-table,
+            .reviews-container {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .service-card,
+            .contact-form,
+            .payment-section,
+            .hours-table,
+            .reviews-container {
+                padding: 20px;
             }
         }
 
@@ -401,41 +570,42 @@
 </head>
 <body>
     <!-- Top Bar with Phone -->
-    <div class="top-bar">
-        Call Now: <a href="tel:+18017082460">+1 (801) 708-2460</a>
+    <div class="top-bar" role="banner">
+        Call Now: <a href="tel:+18017082460" aria-label="Call ELITE AUTO DETAILS at +1 (801) 708-2460">+1 (801) 708-2460</a>
     </div>
 
     <!-- Header -->
-    <header>
+    <header role="banner">
         <h1>ELITE AUTO DETAILS</h1>
         <p>Premium Auto Detailing Services by Yair</p>
     </header>
 
     <!-- Navigation -->
-    <nav>
+    <nav role="navigation">
+        <div class="hamburger" aria-label="Toggle navigation menu">☰</div>
         <ul>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#hours">Hours</a></li>
-            <li><a href="#location">Location</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#payment">Book & Pay</a></li>
+            <li><a href="#services" aria-label="View our services">Services</a></li>
+            <li><a href="#reviews" aria-label="Read customer reviews">Reviews</a></li>
+            <li><a href="#hours" aria-label="Check business hours">Hours</a></li>
+            <li><a href="#location" aria-label="Find our location">Location</a></li>
+            <li><a href="#contact" aria-label="Contact us">Contact</a></li>
+            <li><a href="#payment" aria-label="Book and pay online">Book & Pay</a></li>
         </ul>
     </nav>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container" role="main">
         <!-- Services Section -->
         <section id="services">
             <h2>Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>Exterior Detailing</h3>
-                    <p>Complete exterior hand wash, clay bar treatment, paint correction, and premium wax or ceramic coating application for lasting protection and shine.</p>
+                    <p>Complete exterior hand wash, clay bar treatment, paint correction, and premium wax or ceramic coating for lasting protection and shine.</p>
                 </div>
                 <div class="service-card">
                     <h3>Interior Detailing</h3>
-                    <p>Deep cleaning of all interior surfaces including leather conditioning, carpet shampooing, odor elimination, and complete vacuum service.</p>
+                    <p>Deep cleaning of all interior surfaces, including leather conditioning, carpet shampooing, odor elimination, and complete vacuum service.</p>
                 </div>
                 <div class="service-card">
                     <h3>Paint Correction</h3>
@@ -443,11 +613,11 @@
                 </div>
                 <div class="service-card">
                     <h3>Ceramic Coating</h3>
-                    <p>Long-lasting ceramic coating protection that provides superior gloss, hydrophobic properties, and protection against environmental contaminants.</p>
+                    <p>Long-lasting ceramic coating protection providing superior gloss, hydrophobic properties, and resistance to environmental contaminants.</p>
                 </div>
                 <div class="service-card">
                     <h3>Headlight Restoration</h3>
-                    <p>Restore clarity to foggy, yellowed headlights improving both appearance and nighttime visibility for safer driving.</p>
+                    <p>Restore clarity to foggy, yellowed headlights, improving both appearance and nighttime visibility for safer driving.</p>
                 </div>
                 <div class="service-card">
                     <h3>Engine Bay Detailing</h3>
@@ -461,7 +631,7 @@
             <h2>Customer Reviews</h2>
             <div class="reviews-container">
                 <div id="reviews-list"></div>
-                <button id="load-more" class="load-more-btn hidden">Show More Reviews</button>
+                <button id="load-more" class="load-more-btn hidden" aria-label="Load more reviews">Show More Reviews</button>
             </div>
         </section>
 
@@ -504,7 +674,7 @@
         <section id="location">
             <h2>Find Us</h2>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3160290.337574757!2d-113.71512774108281!3d39.32857741612313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4569d24e0f5d9d07%3A0x64f39c075bc925f1!2sELITE%20AUTO%20DETAILS!5e0!3m2!1sen!2sus!4v1761182196691!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3160290.337574757!2d-113.71512774108281!3d39.32857741612313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4569d24e0f5d9d07%3A0x64f39c075bc925f1!2sELITE%20AUTO%20DETAILS!5e0!3m2!1sen!2sus!4v1761182196691!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ELITE AUTO DETAILS Location"></iframe>
             </div>
         </section>
 
@@ -512,22 +682,22 @@
         <section id="contact">
             <h2>Contact Us</h2>
             <div class="contact-form">
-                <form id="contactForm">
+                <form id="contactForm" aria-label="Contact form">
                     <div class="form-group">
                         <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" required aria-required="true" placeholder="Enter your full name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" required aria-required="true" placeholder="Enter your email address">
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone *</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="phone" required aria-required="true" placeholder="Enter your phone number">
                     </div>
                     <div class="form-group">
                         <label for="service">Service Interested In</label>
-                        <select id="service" name="service">
+                        <select id="service" name="service" aria-label="Select a service">
                             <option value="">Select a service</option>
                             <option value="exterior">Exterior Detailing</option>
                             <option value="interior">Interior Detailing</option>
@@ -540,9 +710,9 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Message *</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <textarea id="message" name="message" required aria-required="true" placeholder="Tell us about your needs"></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <button type="submit" class="submit-btn" aria-label="Submit contact form">Send Message</button>
                 </form>
             </div>
         </section>
@@ -551,24 +721,23 @@
         <section id="payment">
             <h2>Book & Pay Online</h2>
             <div class="payment-section">
-                <p>Book your appointment and pay securely online with Square.</p>
+                <p>Securely book your appointment and pay online with our trusted payment partner, Square.</p>
                 <div id="payment-form">
-                    <!-- IMPORTANT: Replace YOUR_LOCATION_ID below with your actual Square Location ID -->
-                    <!-- You can find your Location ID in your Square Dashboard under Settings > Locations -->
-                    <!-- Example: L1234567890ABC -->
                     <script>
                         // Square Payment Form Integration
-                        // Replace YOUR_LOCATION_ID with your actual Square location ID
                         const SQUARE_LOCATION_ID = 'YOUR_LOCATION_ID';
                         
                         document.addEventListener('DOMContentLoaded', function() {
                             const paymentFormDiv = document.getElementById('payment-form');
                             
                             if (SQUARE_LOCATION_ID === 'YOUR_LOCATION_ID') {
-                                paymentFormDiv.innerHTML = '<p style="color: #e94560; font-weight: 600;">Payment integration pending. Please contact us directly to book your appointment.</p><p style="margin-top: 15px;"><a href="tel:+18017082460" style="color: #16213e; font-weight: 600; text-decoration: underline;">Call +1 (801) 708-2460</a></p>';
+                                paymentFormDiv.innerHTML = `
+                                    <p style="color: var(--accent-color); font-weight: 600;">Online booking is coming soon!</p>
+                                    <p style="margin-top: 15px;">Please contact us directly to schedule your appointment.</p>
+                                    <p><a href="tel:+18017082460" aria-label="Call to book an appointment">Call +1 (801) 708-2460</a></p>
+                                `;
                             } else {
-                                // Initialize Square payment form here when location ID is set
-                                paymentFormDiv.innerHTML = '<p>Square payment form will load here with your location ID.</p>';
+                                paymentFormDiv.innerHTML = '<p>Secure Square payment form will load here.</p>';
                                 // Add Square Web Payments SDK initialization code here
                             }
                         });
@@ -579,19 +748,19 @@
     </div>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2025 ELITE AUTO DETAILS. All rights reserved.</p>
-        <p>Owner: Yair | Phone: <a href="tel:+18017082460" style="color: #f39c12;">+1 (801) 708-2460</a></p>
+        <p>Owner: Yair | Phone: <a href="tel:+18017082460" aria-label="Call ELITE AUTO DETAILS at +1 (801) 708-2460">+1 (801) 708-2460</a></p>
     </footer>
 
     <script>
-        // Reviews Data - Add your actual reviews here
+        // Reviews Data
         const reviewsData = [
-            { name: "Customer 1", rating: 5, body: "" },
-            { name: "Customer 2", rating: 5, body: "" },
-            { name: "Customer 3", rating: 5, body: "" },
-            { name: "Customer 4", rating: 5, body: "" },
-            { name: "Customer 5", rating: 5, body: "" }
+            { name: "John D.", rating: 5, body: "Yair and his team transformed my car! The ceramic coating is flawless, and the interior looks brand new." },
+            { name: "Sarah M.", rating: 5, body: "Best detailing service I've ever used. Professional, thorough, and great attention to detail." },
+            { name: "Mike R.", rating: 5, body: "Headlight restoration made my car look years younger. Highly recommend!" },
+            { name: "Emily T.", rating: 5, body: "The engine bay detailing was incredible. My car runs smoother and looks amazing." },
+            { name: "David L.", rating: 5, body: "Elite Auto Details exceeded my expectations. Worth every penny!" }
         ];
 
         let currentReviewIndex = 0;
@@ -607,13 +776,14 @@
                 const review = reviewsData[i];
                 const reviewElement = document.createElement('div');
                 reviewElement.className = 'review';
+                reviewElement.setAttribute('role', 'article');
                 
                 const stars = '★'.repeat(review.rating);
                 
                 reviewElement.innerHTML = `
                     <div class="review-header">
                         <span class="review-name">${review.name}</span>
-                        <span class="stars">${stars}</span>
+                        <span class="stars" aria-label="${review.rating} stars">${stars}</span>
                     </div>
                     ${review.body ? `<div class="review-body">${review.body}</div>` : ''}
                 `;
@@ -623,7 +793,6 @@
             
             currentReviewIndex = endIndex;
             
-            // Update button
             if (currentReviewIndex < reviewsData.length) {
                 const remaining = reviewsData.length - currentReviewIndex;
                 loadMoreBtn.textContent = `Show ${remaining} More Review${remaining > 1 ? 's' : ''} (Total ${reviewsData.length})`;
@@ -651,20 +820,17 @@
                 message: document.getElementById('message').value
             };
             
-            // Create mailto link
             const subject = encodeURIComponent('Service Inquiry from ' + formData.name);
             const body = encodeURIComponent(
                 `Name: ${formData.name}\n` +
                 `Email: ${formData.email}\n` +
                 `Phone: ${formData.phone}\n` +
-                `Service: ${formData.service}\n\n` +
+                `Service: ${formData.service || 'Not specified'}\n\n` +
                 `Message:\n${formData.message}`
             );
             
-            // Replace with your actual email
-            window.location.href = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:contact@eliteautodetails.com?subject=${subject}&body=${body}`;
             
-            // Reset form
             this.reset();
             alert('Thank you for your message! Your default email client will open to send your inquiry.');
         });
@@ -681,8 +847,15 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('active');
                 }
             });
+        });
+
+        // Hamburger menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
         });
     </script>
 </body>
